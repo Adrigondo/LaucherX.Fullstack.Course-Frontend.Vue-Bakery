@@ -4,7 +4,7 @@
             <a href="./login.html" class="button-primary btn btn-lg" type="button">Soy pastelero</a>
         </div>
         <div class="container d-grid gap-1">
-            <img src="../assets/logo_dulces_mordidas_NB.png" alt="Logo de Dulces mordidas" width="250px">
+            <img src="@/assets/logo_dulces_mordidas_NB.png" alt="Logo de Dulces mordidas">
             <a href="#" class="button-primary btn btn-lg" type="button">
                 {{ button_info }}
             </a>
@@ -13,7 +13,7 @@
 </template>
 <script>
 export default {
-    name: 'Header-Space',
+    name: 'HeaderSpace',
     props: {
         button_info: String,
     },
@@ -28,5 +28,6 @@ header {
 }
 header img{
     margin: 0px auto;
+    width: 250px;
 }
 </style>

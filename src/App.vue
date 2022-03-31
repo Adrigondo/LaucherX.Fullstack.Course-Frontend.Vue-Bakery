@@ -14,6 +14,10 @@ html {
     position: relative;
 }
 
+body {
+    margin-bottom: 140px;
+}
+
 #app {
   font-family: 'Fredoka', sans-serif;
   /* -webkit-font-smoothing: antialiased;
@@ -51,6 +55,22 @@ h4 {
 }
 .content {
     margin-bottom: 20px;
+}
+.content li > div * {
+    margin-left: 10px;
+}
+form img {
+    margin-right: 10px;
+}
+
+.thanks {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+th {
+    font-weight: 600;
 }
 </style>
 
