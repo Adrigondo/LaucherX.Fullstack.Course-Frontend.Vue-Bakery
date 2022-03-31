@@ -1,4 +1,6 @@
-# bakery-vue
+# Frontend Bakery with Vue
+
+This project is the remake of the backery site I made in the second week for the Fronted course of LaunchX 2022. The particularity of the remake is that it is do it with the Vue framework.
 
 ## Project setup
 ```
