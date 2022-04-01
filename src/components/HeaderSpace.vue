@@ -1,13 +1,14 @@
 <template>
     <header>
-        <div class="admin">
+        
+        <div class="admin" v-if="isHome">
             <a href="./login.html" class="button-primary btn btn-lg" type="button">Soy pastelero</a>
         </div>
         <div class="container d-grid gap-1">
             <img src="@/assets/logo_dulces_mordidas_NB.png" alt="Logo de Dulces mordidas">
-            <a href="#" class="button-primary btn btn-lg" type="button">
+            <router-link :to="'/'+destiny" class="button-primary btn btn-lg" type="button">
                 {{ button_info }}
-            </a>
+            </router-link>
         </div>
     </header>
 </template>
@@ -15,7 +16,9 @@
 export default {
     name: 'HeaderSpace',
     props: {
+        destiny: String,
         button_info: String,
+        isHome: Boolean,
     },
 }
 </script>

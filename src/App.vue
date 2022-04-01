@@ -12,10 +12,11 @@
 html {
     min-height: 100%;
     position: relative;
+    font-size: calc(16px + .3vw);
 }
 
 body {
-    margin-bottom: 140px;
+    margin-bottom: calc(8rem + 15px)!important;
 }
 
 #app {

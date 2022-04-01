@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex align-items-center">
+    <div class="sale-item">
         <img v-bind:src="imageURL" :alt="'Icono de' + name" height="50" width="50">
         <div class="">
             <h4 style="margin: 0px;">{{name}}</h4>
@@ -20,5 +20,11 @@ export default {
 </script>
 
 <style>
-
+    .btn-group .sale-item{
+        display: block;
+    }
+    .sale-item{
+        display: flex;
+        align-items: center;
+    }
 </style>

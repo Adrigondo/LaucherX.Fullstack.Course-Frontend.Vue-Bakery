@@ -1,5 +1,9 @@
 <template>
-  <header-space button_info="Realizar pedido"/>
+  <header-space
+    button_info="Realizar pedido"
+    destiny="order"
+    isHome=true
+  />
   <div class="content container">
     <h2>Menú</h2>
     <ul>
