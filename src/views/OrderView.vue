@@ -1,25 +1,46 @@
 <template>
-  <header-space
-    button_info="Volver al menú"
-    destiny=""
-  />
-  <div class="content container">
-    <h2>Ordena tu pastel!</h2>
-    <cake-selection/>
-    <flavor-selection/>
-    <decorations-selection/>
-    <div class="form-group">
-        <p>Escriba descripción o especificaciones para el pastel, el sabor, y los adornos <span class="badge bg-secondary">Opcional</span> </p>
-        <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Especificaciones" id="cake_description" required=""></textarea>
-            <label for="cake_description">Especificaciones</label>
-        </div>
+    <header-space
+        button_info="Volver al menú"
+        destiny=""
+    />
+    <div class="content container">
+        <form action="">
+            <h2>Ordena tu pastel!</h2>
+            
+            <section class="form-group">
+                <p>Rellene sus datos por favor: <span class="badge bg-primary">Obligatorio</span> </p>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" placeholder="Nombre y apellido" id="name" name="name" required>
+                    <label for="name">Nombre y apellido</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="phone" class="form-control" placeholder="Nombre y apellido" id="phone" name="phone" required>
+                    <label for="phone">No. de telefono</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" placeholder="Nombre y apellido" id="email" name="email" required>
+                    <label for="email">Correo electronico</label>
+                </div>  
+            </section>
+
+            <cake-selection/>
+            <flavor-selection/>
+            <decorations-selection/>
+
+            <div class="form-group">
+                <p>Escriba descripción o especificaciones para el pastel, el sabor, y los adornos <span class="badge bg-secondary">Opcional</span> </p>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Especificaciones" id="cake_description"></textarea>
+                    <label for="cake_description">Especificaciones</label>
+                </div>
+            </div>
+
+            <div class="d-grid gap-1">
+                <button type="submit" class="button-primary btn btn-lg">¡Completar pedido!</button>
+            </div>
+        </form>
     </div>
-    <div class="d-grid gap-1">
-        <button type="submit" class="button-primary btn btn-lg">¡Completar pedido!</button>
-    </div>
-  </div>
-  <footer-space msg="Welcome to Your Vue.js App"/>
+    <footer-space msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
@@ -89,7 +110,7 @@ export default {
     .badge{
         font-weight: 500;
     }
-    section{
+    h2, section{
         margin-bottom: 2rem;
     }
 </style>
