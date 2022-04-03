@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import OrderView from '@/views/OrderView.vue'
+import OrderCompleteView from '@/views/OrderCompleteView.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/order',
     name: 'order',
     component: OrderView
+  },
+  {
+    path: '/order/received',
+    name: 'received',
+    component: OrderCompleteView
   },
   {
     path: '/about',

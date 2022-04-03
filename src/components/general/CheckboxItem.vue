@@ -1,10 +1,10 @@
 <template>
     <input
         type="checkbox" class="btn-check"
-        :name="kind + '_check'" :id="kind+'_check_'+number"
+        :name="kind" :id="kind+'_check_'+number"
         autocomplete="off"
         :value="name"
-        :v-model="kind + '_check'"
+        :v-model="kind"
     >
     <label class="btn btn-outline-primary" :for="kind+'_check_'+number">
         <div>

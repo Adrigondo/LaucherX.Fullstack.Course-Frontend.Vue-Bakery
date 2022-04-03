@@ -10,21 +10,15 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HeaderSpace from '@/components/general/HeaderSpace.vue'
-import FooterSpace from '@/components/general/FooterSpace.vue'
+import HeaderSpace from "@/components/general/HeaderSpace.vue"
+import FooterSpace from "@/components/general/FooterSpace.vue"
 
 export default {
-  name: 'OrderCompleteView',
-  components: {
-    HeaderSpace,
-    FooterSpace,
-  },
-  /* data(){
-      return{
-          user: store.getters.getUser,
-      }
-  } */
+    name: "BakerLogin",
+    components: {
+        HeaderSpace,
+        FooterSpace
+    }
 }
 </script>
 

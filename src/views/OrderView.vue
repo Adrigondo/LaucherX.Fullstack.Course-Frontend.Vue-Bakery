@@ -1,10 +1,10 @@
 <template>
     <header-space
         button_info="Volver al menú"
-        destiny=""
+        destiny="home"
     />
     <div class="content container">
-        <form id="app" @submit.prevent="storeOrder">
+        <form id="app" @submit="storeOrder">
             <h2>Ordena tu pastel!</h2>
             
             <section class="form-group">
@@ -36,7 +36,7 @@
             <div class="form-group">
                 <p>Escriba descripción o especificaciones para el pastel, el sabor, y los adornos <span class="badge bg-secondary">Opcional</span> </p>
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" placeholder="Especificaciones" name="cake_description" id="cake_description" v-model="cake_description"></textarea>
+                    <textarea class="form-control" placeholder="Especificaciones" name="description" id="cake_description" v-model="cake_description"></textarea>
                     <label for="cake_description">Especificaciones</label>
                 </div>
             </div>
@@ -56,6 +56,7 @@ import FooterSpace from '@/components/general/FooterSpace.vue'
 import CakeSelection from '@/components/order/CakeSelection.vue'
 import FlavorSelection from '@/components/order/FlavorsSelection.vue'
 import DecorationsSelection from '@/components/order/DecorationsSelection.vue'
+import router from '@/router'
 
 export default {
     name: 'OrderView',
@@ -75,17 +76,32 @@ export default {
         // DecorationsList
     },
     methods: {
-        storeOrder(event) {
+        async storeOrder(event) {
             /* console.log(this.$refs.cakeOrder.name.value);
             console.log(this.$refs.cakeOrder.email.value);
             console.log(this.$refs.cakeOrder.phone.value);
             console.log(this.$refs.cakeOrder.cake_description.value);
             console.log(this.$refs.cakeOrder.cake.value); */
             const form = event.target;
-            const formData = new FormData(form);
-            for (const [inputName, value] of formData) {
-                console.log({ inputName, value });
+            const formData = await new FormData(form);
+            let order={};
+            for (const [name, value] of formData) {
+                if(!order[name]){
+                    order[name]=[value];
+                }else{
+                    order[name].push(value);
+                }
             }
+            /* for(let key in order){
+                console.log({
+                    key,
+                    value: order[key],
+                });
+            } */
+            console.log(order);
+            this.$store.dispatch("addOrder", order);
+            this.$store.dispatch("setUser", order);// Take the user from the order
+            router.replace({name: "received"})
         },
     },
 }

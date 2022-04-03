@@ -1,10 +1,10 @@
 <template>
     <input
         type="radio" class="btn-check"
-        :name="kind + '_radio'" :id="kind+'_radio_'+number" 
+        :name="kind" :id="kind+'_radio_'+number" 
         autocomplete="off"
         :value="name"
-        :v-model="kind + '_radio'"
+        :v-model="kind"
         required
     >
     <label class="btn btn-outline-primary" :for="kind+'_radio_'+number">

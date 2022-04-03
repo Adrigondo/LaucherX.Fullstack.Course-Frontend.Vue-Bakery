@@ -1,12 +1,11 @@
 <template>
     <header>
-        
         <div class="admin" v-if="isHome">
             <a href="./login.html" class="button-primary btn btn-lg" type="button">Soy pastelero</a>
         </div>
         <div class="container d-grid gap-1">
             <img src="@/assets/logo_dulces_mordidas_NB.png" alt="Logo de Dulces mordidas">
-            <router-link :to="'/'+destiny" class="button-primary btn btn-lg" type="button">
+            <router-link :to="{name: destiny}" class="button-primary btn btn-lg" type="button">
                 {{ button_info }}
             </router-link>
         </div>

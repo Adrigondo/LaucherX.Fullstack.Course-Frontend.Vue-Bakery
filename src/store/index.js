@@ -2,25 +2,16 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    orders:[
-      {
-        user: {
-          name: "",
-          phone: "",
-          email: "",
-        },
-        cake: {
-          type: "",
-          flavors:[],
-          decorations:[],
-        }
-      }
-    ]
+    user: {},
+    orders:[],
   },
   getters: {
-    /* contadorCuadrado(state) {
-      return state.counter * state.counter;
-    } */
+    getOrders(state){
+      return state.orders;
+    },
+    getUser(state){
+      return state.user;
+    }
   },
   mutations: {
     /* subirContador(state, random){
@@ -32,8 +23,15 @@ export default createStore({
     colorChange(state, color) {
       state.color = color;
     } */
-    addOrder(state, order){
-      
+    addOrder(state, newOrder){
+      state.orders.push(newOrder)
+      console.log("Saved!");
+      console.log(state.orders);
+    },
+    setUser(state, newUser){
+      state.user=newUser
+      console.log("User saved!");
+      console.log(state.user);
     }
   },
   actions: {
@@ -52,20 +50,31 @@ export default createStore({
     colorChange({commit}, color) {
       commit("colorChange", color);
     } */
-    addOrder({commit}, name, phone, email, type, flavors, decorations){
+    addOrder({commit}, order){
       let newOrder={
         user: {
-          name: name,
-          phone: phone,
-          email: email,
+          name: order.name[0],
+          phone: order.phone[0],
+          email: order.email[0],
         },
         cake: {
-          type: type,
-          flavors: flavors,
-          decorations: decorations,
+          cake: order.cake[0],
+          flavors: order.flavors,
+          decorations: order.decorations,
+          description: order.description[0],
         }
       }
+      // console.log(newOrder);
       commit("addOrder", newOrder);
+    },
+    setUser({commit}, user){
+      let newUser={
+          name: user.name[0],
+          phone: user.phone[0],
+          email: user.email[0],
+      }
+      // console.log(newOrder);
+      commit("setUser", newUser);
     }
   },
   modules: {
