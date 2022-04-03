@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import SaleItem from "@/components/SaleItem.vue"
+import SaleItem from "@/components/general/SaleItem.vue"
 export default {
     name: "FlavorsList",
     components:{

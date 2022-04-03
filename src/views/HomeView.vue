@@ -17,8 +17,8 @@
 
 <script>
 // @ is an alias to /src
-import HeaderSpace from '@/components/HeaderSpace.vue'
-import FooterSpace from '@/components/FooterSpace.vue'
+import HeaderSpace from '@/components/general/HeaderSpace.vue'
+import FooterSpace from '@/components/general/FooterSpace.vue'
 import CakeList from '@/components/CakeList.vue'
 import FlavorsList from '@/components/FlavorsList.vue'
 import DecorationsList from '@/components/DecorationsList.vue'
