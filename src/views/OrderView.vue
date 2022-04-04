@@ -4,7 +4,7 @@
         destiny="home"
     />
     <div class="content container">
-        <form id="app" @submit="storeOrder">
+        <form @submit.prevent="storeOrder">
             <h2>Ordena tu pastel!</h2>
             
             <section class="form-group">
@@ -51,20 +51,15 @@
 
 <script>
 // @ is an alias to /src
+import router from '@/router'
 import HeaderSpace from '@/components/general/HeaderSpace.vue'
 import FooterSpace from '@/components/general/FooterSpace.vue'
 import CakeSelection from '@/components/order/CakeSelection.vue'
 import FlavorSelection from '@/components/order/FlavorsSelection.vue'
 import DecorationsSelection from '@/components/order/DecorationsSelection.vue'
-import router from '@/router'
 
 export default {
     name: 'OrderView',
-    data(){
-        return {
-
-        }
-    },
     components: {
         HeaderSpace,
         FooterSpace,

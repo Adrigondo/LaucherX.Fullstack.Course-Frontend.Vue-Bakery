@@ -2,12 +2,24 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import OrderView from '@/views/OrderView.vue'
 import OrderCompleteView from '@/views/OrderCompleteView.vue'
+import BakerLoginView from '@/views/BakerLoginView.vue'
+import BakerAdminView from '@/views/BakerAdminView.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/bakery/login',
+    name: 'login',
+    component: BakerLoginView
+  },
+  {
+    path: '/bakery/admin',
+    name: 'admin',
+    component: BakerAdminView
   },
   {
     path: '/order',

@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="admin" v-if="isHome">
-            <a href="./login.html" class="button-primary btn btn-lg" type="button">Soy pastelero</a>
+            <router-link :to="{name: 'login'}" class="button-primary btn btn-lg" type="button">Soy pastelero</router-link>
         </div>
         <div class="container d-grid gap-1">
             <img src="@/assets/logo_dulces_mordidas_NB.png" alt="Logo de Dulces mordidas">
