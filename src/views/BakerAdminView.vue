@@ -109,7 +109,7 @@
 </template>
 
 <script>
-import {mapState} from "vuex"
+import {mapState} from "pinia"
 import HeaderSpace from "@/components/general/HeaderSpace.vue"
 import FooterSpace from "@/components/general/FooterSpace.vue"
 import IngredientItem from '@/components/admin/IngredientItem.vue'
