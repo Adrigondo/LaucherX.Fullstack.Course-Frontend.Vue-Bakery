@@ -109,11 +109,13 @@
 </template>
 
 <script>
-import {mapState} from "pinia"
+import { useBakeryStore } from "@/store"; // Adjust the path accordingly
 import HeaderSpace from "@/components/general/HeaderSpace.vue"
 import FooterSpace from "@/components/general/FooterSpace.vue"
 import IngredientItem from '@/components/admin/IngredientItem.vue'
 import IngredientKindsItem from '@/components/admin/IngredientKindsItem.vue'
+import { storeToRefs } from "pinia";
+import { computed } from "vue";
 
 export default {
     name: "BakerAdmin",
@@ -123,61 +125,27 @@ export default {
         IngredientItem,
         IngredientKindsItem,
     },
-    computed: mapState({
-        baker: state => state.bakery.baker,
-        orders: state => state.orders,
-        decorations: state => state.bakery.inventory.decorations,
-        ingredients: state => {
-            let res=[];
-            let aux=state.bakery.inventory.ingredients;
-            // console.log(aux);
-            for(let key in aux){
-                if(!aux[key].kinds){
-                    res.push(aux[key]);
-                }
-            }
-            /* aux.forEach((ingredient)=>{
-                // console.log(ingredient)
-                if(!ingredient.kinds){
-                    res.push(ingredient);
-                }
-            }) */
-                
-            // console.log(res)
-            return res;
-        },
-        multingredients: state => {
-            let res=[];
-            let aux=state.bakery.inventory.ingredients;
-            // console.log(aux);
-            for(let key in aux){
-                if(aux[key].kinds){
-                    res.push(aux[key]);
-                }
-            }
-            /* aux.forEach((ingredient)=>{
-                // console.log(ingredient)
-                if(!ingredient.kinds){
-                    res.push(ingredient);
-                }
-            }) */
-                
-            // console.log(res)
-            return res;
-        },
-    }),
-    methods: {
-        async storeBakeryData(event) {
+    setup(){
+        const store = useBakeryStore();
+        const { baker, orders, inventory } = storeToRefs(store);
+        const ingredients = computed(() => {
+            return inventory.value.ingredients.filter(ingredient => !ingredient.kinds);
+        });
+        const multingredients = computed(() => {
+            return inventory.value.ingredients.filter(ingredient => ingredient.kinds);
+        });
+        const decorations = computed(() => inventory.value.decorations);
+
+        const storeBakeryData = async (event) => {
             const form = event.target;
-            const formData = await new FormData(form);
-            let bakery={};
+            const formData = new FormData(form);
+            let bakery = {};
             for (const [name, value] of formData) {
-                if(!bakery[name]){
-                    bakery[name]=[value];
-                }else{
+                if (!bakery[name]) {
+                    bakery[name] = [value];
+                } else {
                     bakery[name].push(value);
                 }
-
             }
             /* for(let key in bakery){
                 console.log({
@@ -186,10 +154,18 @@ export default {
                 });
             } */
             // console.log(bakery);
-            this.$store.dispatch("setBakeryData", bakery);
+            store.setBakeryData(bakery);
             alert("Ordenes e inventario actualizados.");
             // router.replace({name: "received"})
-        },
+        };
+        return {
+            baker,
+            orders,
+            ingredients,
+            multingredients,
+            decorations,
+            storeBakeryData,
+        };
     },
 }
 </script>
